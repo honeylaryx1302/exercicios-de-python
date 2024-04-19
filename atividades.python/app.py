@@ -37,7 +37,7 @@ def cadastrar_novo_resturante():
    nome_do_restaurante = input('digite o nome do novo restaurante')
    categoria = input (f'digite a categoria do resturante {nome_do_restaurante}: ')
    dado_do_restaurante ={'nome':nome_do_restaurante,'categoria':categoria,'ativo':False}
-   restaurantes.append(nome_do_restaurante)
+   restaurantes.append(dado_do_restaurante)
    print(f'o restaurante{nome_do_restaurante} foi cadastrado com sucesso!')
    voltar_ao_menu_principal()
 
@@ -53,6 +53,22 @@ def listar_restaurante():
 
     voltar_ao_menu_principal()
 
+def alternar_estado_restaurante():
+   exibir_subtitulo('alternado estado do restaurante')
+   nome_restaurante = input('digite o nome do retaurante que deseja alterar o estado:')
+   restaurante_encontrado = False
+
+   for restaurante in restaurantes:
+    if nome_restaurante == restaurante['nome']:
+        restaurante_encontrado = True
+        restaurante['ativo'] = not restaurante['nome']
+        mensagem = f'O restaurante {nome_restaurante} foi ativado com sucesso'if restaurante['ativo'] else f'O restaurante {nome_restaurante} foi desativado com sucesso'
+        print(mensagem)
+
+   if not restaurante_encontrado:
+     print('O o restaurante nao foi encontrado')
+   voltar_ao_menu_principal()
+
 def escolher_opcao():
  try:
     opcao_escolhida = int(input('escolha uma opcao:'))
@@ -62,9 +78,9 @@ def escolher_opcao():
     elif opcao_escolhida == 2:
            listar_restaurante()
     elif opcao_escolhida == 3:
-            print('ativar restaurantes')
+            alternar_estado_restaurante()
     elif opcao_escolhida == 4:
-        finalizar_app()
+            finalizar_app()
     else:
       opcao_invalida()
 
@@ -72,10 +88,10 @@ def escolher_opcao():
     opcao_invalida()
 
 def main():
-   os.sistem('clear')
+   os.system('clear')
    exibir_nome_do_programa()
    exibir_opcoes()
    escolher_opcao()
 
-   if __name__ == '__main__':
-       main()
+if __name__ == '__main__':
+    main()
