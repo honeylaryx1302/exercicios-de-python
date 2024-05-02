@@ -5,15 +5,26 @@ restaurantes = [{'nome':'restaurante XP','categoria':'alimento','ativo':False},
                 {'nome':'CWB','categoria':'sushi','ativo':False}]
 
 def exibir_nome_do_programa():
- print ("""sabor express
+ '''esta função é responsavel por exibir o nome do programa
+ output:
+ -exibe o nome do programa
+ '''
+print ("""sabor express
 """)
 def exibir_opcoes():
+ '''esta função é rsponsavel por exibir as opções
+    output:
+    -nos motra as opções como cadastrar,listar,ativar ou sair do restaurante
+  '''
  print('1. cadastrar restaurante')
  print('2. listar resturante ')
  print('3. ativar restaurante')
  print('4. sair')
 
 def finalizar_app():
+    '''esta opção é responsavel por finalizar o aplicativo
+    output:
+    - '''
     exibir_subtitulo('finalizar app')
 
 def voltar_ao_menu_principal():
